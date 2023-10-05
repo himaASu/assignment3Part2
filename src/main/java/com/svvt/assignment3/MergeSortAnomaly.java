@@ -6,11 +6,11 @@ public class MergeSortAnomaly {
         int arrayLength = arr.length;
 
         // Data flow anomaly #1: Unused variable
-        int unusedVariable = 10;
+        int unusedVariable;
 
         mergeSort(arr, 0, arrayLength - 1);
-
-        // Data flow anomaly #2: Unreachable code after return
+        
+        // Data flow anomaly #2: Dead code (unreachable code after return)
         return;
         System.out.println("This code is unreachable");
     }
@@ -57,10 +57,8 @@ public class MergeSortAnomaly {
             k++;
         }
 
-        // Data flow anomaly #3: Unused loop
-        while (j < n2) {
-            // Loop does nothing
-            j++;
-        }
+        // Data flow anomaly #3: Unused assignment
+        int unusedAssignment = 100;
+        unusedAssignment = 200; 
     }
 }
